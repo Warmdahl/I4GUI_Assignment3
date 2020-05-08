@@ -1,5 +1,5 @@
 {
-  "name": "mm",
+  "name": "model-manage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,11 +7,13 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
-  "description": "MM",
+  "description": "ModelManage",
   "author": {
     "name": ""
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue": "2.5.17"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "3.0.4",
     "@vue/cli-plugin-eslint": "3.0.4",

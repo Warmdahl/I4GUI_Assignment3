@@ -2,14 +2,14 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>MM</Name>
-    <RootNamespace>MM</RootNamespace>
+    <Name>ModelManage</Name>
+    <RootNamespace>ModelManage</RootNamespace>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>e89f1144-583c-4d4f-80f6-afb9a689cd3f</ProjectGuid>
+    <ProjectGuid>8b5d5f04-6af4-4a5e-a977-a69bd0f83609</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>node_modules\@vue\cli-service\bin\vue-cli-service.js</StartupFile>
     <SearchPath>
@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="babel.config.js" />
-    <Content Include="src\components\Login.vue" />
-    <Content Include="src\components\test.vue">
+    <Content Include="src\components\Login.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\Models.vue">
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\main.js" />
