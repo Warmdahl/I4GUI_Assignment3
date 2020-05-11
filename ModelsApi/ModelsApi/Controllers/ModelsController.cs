@@ -18,7 +18,7 @@ namespace ModelsApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Manager")]
     public class ModelsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
