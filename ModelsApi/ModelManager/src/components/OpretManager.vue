@@ -2,21 +2,41 @@
     <div>
         <form @submit.prevent="submitFunction">
 
-            <label>First name</label>
-            <md-input v-model="fname"></md-input>
+            <md-card class="md-layout-item md-size-50 md-small-size-100">
 
-            <label>Last name</label>
-            <md-input v-model="lname"></md-input>
+                <md-card-header>
+                    <div class="md-title">Opret Job</div>
+                </md-card-header>
 
-            <label>Email</label>
-            <md-input v-model="email"></md-input>
+                <md-card-content>
 
-            <label>Password</label>
-            <md-input v-model="password"></md-input>
+                    <md-field>
+                        <label>First name</label>
+                        <md-input v-model="fname"></md-input>
+                    </md-field>
 
-            <md-card-action>
-                <md-button type="submit">submit</md-button>
-            </md-card-action>
+                    <md-field>
+                        <label>Last name</label>
+                        <md-input v-model="lname"></md-input>
+                    </md-field>
+
+                    <md-field>
+                        <label>Email</label>
+                        <md-input v-model="email"></md-input>
+                    </md-field>
+
+                    <md-field>
+                        <label>Password</label>
+                        <md-input v-model="password"></md-input>
+                    </md-field>
+
+                </md-card-content>
+
+                <md-card-action>
+                    <md-button type="submit" class="md-raised">submit</md-button>
+                </md-card-action>
+
+            </md-card>
         </form>
     </div>
 </template>

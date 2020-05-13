@@ -97,13 +97,11 @@
                         <md-input v-model="password"></md-input>
                     </md-field>
 
-
-
                 </md-card-content>
 
-                <!--<md-card-actions>
-                    <md-button type="submit" class="md-raised">login</md-button>
-                </md-card-actions>-->
+                <md-card-actions>
+                    <md-button type="submit" class="md-raised">submit</md-button>
+                </md-card-actions>
 
             </md-card>
         </form>
