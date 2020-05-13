@@ -1,23 +1,29 @@
 <template>
     <div>
         <form @submit.prevent="login02Function">
-            <md-field md-clearable>
-                <label>Cleareable</label>
-                <md-input v-model="username"></md-input>
-            </md-field>
+            <md-card class="md-layout-item md-size-50 md-small-size-100">
 
-            <md-field>
-                <label>Password toggle</label>
-                <md-input v-model="password" type="password"></md-input>
-            </md-field>
+                <md-card-header>
+                    <div class="md-title">Login</div>
+                </md-card-header>
 
-            <md-field :md-toggle-password="false">
-                <label>Password field without toggle</label>
-                <md-input v-model="password" type="password"></md-input>
-            </md-field>
-            <md-card-actions>
-                <md-button type="submit" class="md-primary">login</md-button>
-            </md-card-actions>
+                <md-card-content>
+                    <md-field md-clearable>
+                        <label>Username</label>
+                        <md-input v-model="username"></md-input>
+                    </md-field>
+
+                    <md-field>
+                        <label>Password</label>
+                        <md-input v-model="password" type="password"></md-input>
+                    </md-field>
+                </md-card-content>
+
+                <md-card-actions>
+                    <md-button type="submit" class="md-raised">login</md-button>
+                </md-card-actions>
+
+            </md-card>
         </form>
     </div>
 </template>
@@ -29,8 +35,8 @@ import router from "../router";
     export default {
         name: 'Login',
         data: () => ({
-            username: 'Initial Value',
-            password: 'mysecurepassword',
+            username: 'Enter Email',
+            password: 'EnterPassword',
             url: './api/account/login'
         }),
         methods: {
