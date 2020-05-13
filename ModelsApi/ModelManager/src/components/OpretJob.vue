@@ -2,20 +2,29 @@
     <div>
         <form @submit.prevent="submitFunction">
 
-            <label>Customer</label>
-            <md-input v-model="customer"></md-input>
+            <md-card class="md-layout-item md-size-50 md-small-size-100">
 
-            <label>StartDate</label>
-            <md-input v-model="sdate"></md-input>
+                <md-card-header>
 
-            <label>Days</label>
-            <md-input v-model="days"></md-input>
+                </md-card-header>
 
-            <label>Location</label>
-            <md-input v-model="location"></md-input>
+                    <label>Customer</label>
+                    <md-input v-model="customer"></md-input>
 
-            <label>Comments</label>
-            <md-input v-model="comments"></md-input>
+                    <label>StartDate</label>
+                    <md-input v-model="sdate"></md-input>
+
+                    <label>Days</label>
+                    <md-input v-model="days"></md-input>
+
+                    <label>Location</label>
+                    <md-input v-model="location"></md-input>
+
+                    <label>Comments</label>
+                    <md-input v-model="comments"></md-input>
+
+
+            </md-card>
 
             <md-card-action>
                 <md-button type="submit">submit</md-button>
