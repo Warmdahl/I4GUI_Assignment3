@@ -5,7 +5,7 @@
             <md-card class="md-layout-item md-size-50 md-small-size-100">
 
                 <md-card-header>
-                    <div class="md-title">Add Model to Job</div>
+                    <div> class="md-title">Delete Model from Job</div>
                 </md-card-header>
 
                 <md-card-content>
@@ -23,7 +23,7 @@
                 </md-card-content>
 
                 <md-card-action>
-                    <md-button type="submit" class="md-raised">Add Model</md-button>
+                    <md-button typeof="submit" class="md-raised">Delete Model</md-button>
                 </md-card-action>
 
             </md-card>
@@ -32,36 +32,34 @@
 </template>
 
 <script>
-    //import router from "../router";
-
     export default {
-        name: 'AddModeltoJob',
+        name: 'DeleteModelfromJob',
         data: () => ({
             ModelId: 'ModelId',
             JobId: 'JobId',
         }),
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
+                var url = "https://localhost:44368/api/Jobs" + this.JobId + "/model/" + this.ModelId; //Skal kigges på!!
                 var data = {
                     ModelId: this.ModelId,
-                    JobId: this.JobId, 
+                    JobId: this.JobId,
                 };
 
                 fetch(url, {
-                    method: 'POST', // Or POST, PUT, DELETE
+                    method: 'POST',
                     credentials: 'include',
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
-                        'Content-Type': 'application/json'
+                        'Content-.Type': 'application/json'
                     },
-                    body: Json.stringify(data)
-                }).then(responseJson => {
-                    data = JSON.parse(responseJson);
+                    body: JSON.stringify(data)
+                }).then(ResponseJson => {
+                    data = JSON.parse(ResponseJson);
                 })
                     .catch(error => this.setState({
                         isLoading: false,
-                        message: 'Something bad happened ' + error
+                        message: 'Somthing bad happend ' + error
                     }));
             }
         }
