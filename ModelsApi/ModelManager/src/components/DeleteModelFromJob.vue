@@ -5,35 +5,25 @@
             <md-card class="md-layout-item md-size-50 md-small-size-100">
 
                 <md-card-header>
-                    <div class="md-title">Opret Job</div>
+                    <div> class="md-title">Delete Model from Job</div>
                 </md-card-header>
 
                 <md-card-content>
 
                     <md-field>
-                        <label>First name</label>
-                        <md-input v-model="fname"></md-input>
+                        <label>Model Id</label>
+                        <md-input v-model="ModelId"></md-input>
                     </md-field>
 
                     <md-field>
-                        <label>Last name</label>
-                        <md-input v-model="lname"></md-input>
-                    </md-field>
-
-                    <md-field>
-                        <label>Email</label>
-                        <md-input v-model="email"></md-input>
-                    </md-field>
-
-                    <md-field>
-                        <label>Password</label>
-                        <md-input v-model="password"></md-input>
+                        <label>Job Id</label>
+                        <md-input v-model="JobId"></md-input>
                     </md-field>
 
                 </md-card-content>
 
                 <md-card-action>
-                    <md-button type="submit" class="md-raised">submit</md-button>
+                    <md-button typeof="submit" class="md-raised">Delete Model</md-button>
                 </md-card-action>
 
             </md-card>
@@ -45,25 +35,21 @@
     import router from "../router";
 
     export default {
-        name: 'opretmanager',
+        name: 'DeleteModelfromJob',
         data: () => ({
-            fname: 'Firstname',
-            lname: 'LastName',
-            email: '123@mail.dk',
-            password: 'sexy'
+            ModelId: 'ModelId',
+            JobId: 'JobId',
         }),
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/Managers";
+                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId; //Skal kigges på!!
                 var data = {
-                    "firstname": this.fname,
-                    "lastname": this.lname,
-                    "email": this.email,
-                    "password": this.password
+                    ModelId: this.ModelId,
+                    JobId: this.JobId,
                 };
 
                 fetch(url, {
-                    method: 'POST',
+                    method: 'DELETE',
                     body: JSON.stringify(data),
                     credentials: 'include',
                     headers: new Headers({
@@ -77,5 +63,5 @@
     };
 </script>
 
-<style>
+<style scoped>
 </style>

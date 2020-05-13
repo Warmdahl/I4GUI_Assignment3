@@ -37,7 +37,7 @@
 </template>
 
 <script>
-    //import router from "../router";
+    import router from "../router";
 
     export default {
         
@@ -59,9 +59,10 @@
                 };
 
                 fetch(url, {
-                    method: 'POST', // Or POST, PUT, DELETE
+                    method: 'POST',
+                    body: JSON.stringify(data),
                     credentials: 'include',
-                    headers: {
+                    headers: new Headers({
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     },

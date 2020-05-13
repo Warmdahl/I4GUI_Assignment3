@@ -127,6 +127,7 @@
             nationality: "danglish",
             height: 2.1,
             shoeSize: 38,
+            hairColor: "brown",
             eyeColor: "dark",
             comments: "hej med dig",
             password: "password123",
@@ -149,6 +150,7 @@
                     "nationality": this.nationality,
                     "height": this.height,
                     "shoeSize": this.shoeSize,
+                    "hairColor": this.hairColor,
                     "eyeColor": this.eyeColor,
                     "comments": this.comments,
                     "password": this.password
