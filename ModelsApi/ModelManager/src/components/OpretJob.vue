@@ -15,25 +15,33 @@
                         <md-input v-model="customer"></md-input>
                     </md-field>
 
-                    <label>StartDate</label>
-                    <md-input v-model="sdate"></md-input>
+                    <md-field>
+                        <label>StartDate</label>
+                        <md-input v-model="sdate"></md-input>
+                    </md-field>
 
-                    <label>Days</label>
-                    <md-input v-model="days"></md-input>
+                    <md-field>
+                        <label>Days</label>
+                        <md-input v-model="days"></md-input>
+                    </md-field>
 
-                    <label>Location</label>
-                    <md-input v-model="location"></md-input>
+                    <md-field>
+                        <label>Location</label>
+                        <md-input v-model="location"></md-input>
+                    </md-field>
 
-                    <label>Comments</label>
-                    <md-input v-model="comments"></md-input>
+                    <md-field>
+                        <label>Comments</label>
+                        <md-input v-model="comments"></md-input>
+                    </md-field>
 
                 </md-card-content>
 
-            </md-card>
+                <md-card-action>
+                    <md-button type="submit" class="md-raised">submit</md-button>
+                </md-card-action>
 
-            <md-card-action>
-                <md-button type="submit">submit</md-button>
-            </md-card-action>
+            </md-card>
         </form>
     </div>
 </template>
