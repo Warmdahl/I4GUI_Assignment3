@@ -32,6 +32,12 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
+    <Content Include="src\components\OpretJob.vue">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\components\OpretManager.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\components\OpretModel.vue">
       <SubType>Code</SubType>
     </Content>
