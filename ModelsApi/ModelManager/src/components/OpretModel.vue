@@ -120,7 +120,7 @@
     import router from "../router";
 
     export default {
-        name: 'opretmodel',
+        name: 'OpretModel',
         data: () => ({
             fname: 'Firstname',
             lname: 'LastName',
@@ -137,7 +137,8 @@
             shoeSize: '38',
             eyeColor: 'dark',
             comments: 'hej med dig',
-            password: 'password123'
+            password: 'password123',
+            url: './api/models'
         }),
         methods: {
             submitFunction() {
@@ -167,12 +168,12 @@
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 }).then(res => res.json()).then((token) => {
                     localStorage.setItem("token", token.jwt);
-                    router.push("/opretmodel")
+                    router.push("/")
                 }).catch(error => alert("Error!!! " + error))
             }
         }
-    };
+    }
 </script>
 
-<style scoped>
+<style>
 </style>
