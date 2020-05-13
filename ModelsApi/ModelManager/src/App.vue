@@ -1,21 +1,18 @@
 <template>
     <div id="app">
-        <Home msg="Hello world!" />
-        <Login/>
-        <Home msg="Hejsa"/>
+        <nav>
+            <router-link to="/">Home</router-link> |
+            <router-link to="/login">Login</router-link> |
+            <router-link to="/opretmodel">Opret Model</router-link>
+        </nav>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-    import Home from './components/Home.vue';
-    import Login from './components/Login.vue'
 
     export default {
-        name: 'app',
-        components: {
-            Home,
-            Login
-        }
+        name: 'app'
     };
 </script>
 
