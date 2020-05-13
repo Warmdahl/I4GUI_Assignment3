@@ -156,16 +156,29 @@
 
                 fetch(url, {
                     method: 'POST',
-                    body: JSON.stringify(data),
+                    body: data,
                     credentials: "include",
                     headers: new Headers({
                         'Authorization': 'Bearer' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
                 })
-                    .then(
-                    router.push("/")
-                ).catch(error => alert("Error!!! " + error))
+                    //.then(function (response) {
+                    //    if (response.ok) {
+                    //        return response.json();
+                    //    }
+                    //    return Promise.reject(response);
+                    //})
+                    .then(responseJson => {
+                        data = responseJson;
+                    })
+                    //.then(function (data) {
+                    //    console.log(data);
+                    //})
+                    .then(router.push("/"))
+                    .catch(function (error) {
+                       alert("Something wrong: " + error)
+                    })               
             }
         }
     }

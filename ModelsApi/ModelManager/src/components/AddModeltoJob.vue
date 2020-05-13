@@ -39,31 +39,30 @@
             ModelId: 'ModelId',
             JobId: 'JobId',
         }),
-        methods: {
-            submitFunction() {
-                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
-                var data = {
-                    ModelId: this.ModelId,
-                    JobId: this.JobId, 
-                };
+        //methods: {
+        //    submitFunction() {
+        //        var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
+        //        var data = {
+        //            ModelId: this.ModelId,
+        //            JobId: this.JobId, 
+        //        };
 
-                fetch(url, {
-                    method: 'POST', // Or POST, PUT, DELETE
-                    credentials: 'include',
-                    headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
-                        'Content-Type': 'application/json'
-                    },
-                    body: Json.stringify(data)
-                }).then(responseJson => {
-                    data = JSON.parse(responseJson);
-                })
-                    .catch(error => this.setState({
-                        isLoading: false,
-                        message: 'Something bad happened ' + error
-                    }));
-            }
-        }
+        //        fetch(url, {
+        //            method: 'POST', // Or POST, PUT, DELETE
+        //            credentials: 'include',
+        //            headers: {
+        //                'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        //                'Content-Type': 'application/json'
+        //            },
+        //        }).then(responseJson => {
+        //            var items = JSON.parse(responseJson);
+        //        })
+        //            .catch(error => this.setState({
+        //                isLoading: false,
+        //                message: 'Something bad happened ' + error
+        //            }));
+        //    }
+        //}
     };
 </script>
 
