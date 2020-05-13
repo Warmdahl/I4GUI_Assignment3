@@ -44,17 +44,24 @@
                 var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
                 var data = {
                     ModelId: this.ModelId,
-                    JobId: this.JobId,
+                    JobId: this.JobId, 
                 };
 
                 fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: new Headers({ 'Content-Type': 'application/json' })
-                }).then(res => res.json()).then((token) => {
-                    localStorage.setItem("token", token.jwt);
-                    //router.push("/addmodeltojob")
-                }).catch(error => alert("Error!!! " + error))
+                    method: 'POST', // Or POST, PUT, DELETE
+                    credentials: 'include',
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    },
+                    body: Json.stringify(data)
+                }).then(responseJson => {
+                    data = JSON.parse(responseJson);
+                })
+                    .catch(error => this.setState({
+                        isLoading: false,
+                        message: 'Something bad happened ' + error
+                    }));
             }
         }
     };
