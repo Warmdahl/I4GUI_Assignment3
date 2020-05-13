@@ -27,10 +27,14 @@ export default new Router({
             path: "/opretmodel",
             name: "OpretModel",
             component: OpretModel
-        },        {            path: "/opretmanager",
+        },
+        {
+            path: "/opretmanager",
             name: "OpretManager",
             component: OpretManager
-        },        {            path: "/opretjob",
+        },
+        {
+            path: "/opretjob",
             name: "OpretJob",
             component: OpretJob
         },        {            path: "/addmodeltojob",            name: "AddModeltoJob",            component: AddModeltoJob        }    ]
