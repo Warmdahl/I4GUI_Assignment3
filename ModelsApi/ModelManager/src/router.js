@@ -5,6 +5,7 @@ import Login from "./components/Login.vue";
 import OpretModel from './components/OpretModel.vue';
 import OpretManager from './components/OpretManager.vue';
 import OpretJob from './components/OpretJob.vue';
+import AddModeltoJob from './components/AddModeltoJob.vue';
 Vue.use(Router);
 export default new Router({
     mode: "history",
@@ -30,5 +31,8 @@ export default new Router({
         },        {            path: "/opretjob",
             name: "OpretJob",
             component: OpretJob
+        },        {            path: "/AddModeltoJob",
+            name: "AddModeltoJob",
+            component: AddModeltoJob
         }    ]
 });
