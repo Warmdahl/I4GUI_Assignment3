@@ -14,7 +14,7 @@
             <label>Phone nr</label>
             <md-input v-model="phonenr"></md-input>
             
-            <label>Addres Line 1</label>
+            <label>Addres Line 1 </label>
             <md-input v-model="addresLine1"></md-input>
             
             <label>Addres Line 2</label>
