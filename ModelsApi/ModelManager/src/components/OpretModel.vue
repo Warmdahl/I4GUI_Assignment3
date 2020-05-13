@@ -105,7 +105,7 @@
 
             </md-card>
         </form>
-        </div>
+    </div>
 </template>
 
 <script>
@@ -123,10 +123,10 @@
             zip: '1234',
             city: 'asdftown',
             country: 'qwerland',
-            birthDate: 'test',
+            birthDate: '2020-02-02',
             nationality: 'danglish',
-            height: '2',
-            shoeSize: '38',
+            height: 2,
+            shoeSize: 38,
             eyeColor: 'dark',
             comments: 'hej med dig',
             password: 'password123',
@@ -157,11 +157,15 @@
                 fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(data),
-                    headers: new Headers({ 'Content-Type': 'application/json' })
-                }).then(res => res.json()).then((token) => {
-                    localStorage.setItem("token", token.jwt);
+                    credentials: "include",
+                    headers: new Headers({
+                        'Authorization': 'Bearer' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                })
+                    .then(
                     router.push("/")
-                }).catch(error => alert("Error!!! " + error))
+                ).catch(error => alert("Error!!! " + error))
             }
         }
     }
