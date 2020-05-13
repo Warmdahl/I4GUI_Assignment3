@@ -1,4 +1,4 @@
-<!--<template>
+<template>
     <div>
         <md-card class="md-layout-item md-size-50 md-small-size-100">
 
@@ -8,21 +8,24 @@
 
             <md-card-content>
 
-
+                <md-field>
+                    <label>Under Construction</label>
+                    <img src="../assets/Under_Construction.jpg" />
+                </md-field>
 
             </md-card-content>
         </md-card>
     </div>
-</template>-->
+</template>
 
-<!--<script>
-    import router from "../router";
+<script>
+    //import router from "../router";
 
-    export default {
-        name: 'sejob',
+    //export default {
+    //    name: 'sejob',
         
-    };
+    //};
 </script>
 
 <style>
-</style>-->
+</style>
