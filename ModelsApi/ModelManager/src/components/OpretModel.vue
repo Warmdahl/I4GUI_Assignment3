@@ -1,57 +1,91 @@
 <template>
     <div>
         <form @submit.prevent="submitFunction">
+            <md-field>
+                <label>First name</label>
+                <md-input v-model="fname"></md-input>
+            </md-field>
 
-            <label>First name</label>
-            <md-input v-model="fname"></md-input>
-            
-            <label>Last name</label>
-            <md-input v-model="lname"></md-input>
-            
-            <label>Email</label>
-            <md-input v-model="email"></md-input>
-            
-            <label>Phone nr</label>
-            <md-input v-model="phonenr"></md-input>
-            
-            <label>Addres Line 1 </label>
-            <md-input v-model="addresLine1"></md-input>
-            
-            <label>Addres Line 2</label>
-            <md-input v-model="addresLine2"></md-input>
-            
-            <label>Zip code</label>
-            <md-input v-model="zip"></md-input>
-            
-            <label>City</label>
-            <md-input v-model="city"></md-input>
-            
-            <label>Country</label>
-            <md-input v-model="country"></md-input>
-            
-            <label>Birth date</label>
-            <md-input v-model="birthDate"></md-input>
-            
-            <label>Nationality</label>
-            <md-input v-model="nationality"></md-input>
-            
-            <label>Height</label>
-            <md-input v-model="height"></md-input>
-            
-            <label>Shoe size</label>
-            <md-input v-model="shoeSize"></md-input>
-            
-            <label>Hair color</label>
-            <md-input v-model="hairColor"></md-input>
-            
-            <label>Eye color</label>
-            <md-input v-model="eyeColor"></md-input>
-            
-            <label>Comments</label>
-            <md-input v-model="comments"></md-input>
-            
-            <label>Password</label>
-            <md-input v-model="password"></md-input>
+            <md-field>
+                <label>Last name</label>
+                <md-input v-model="lname"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Email</label>
+                <md-input v-model="email"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Phone nr</label>
+                <md-input v-model="phonenr"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Addres Line 1</label>
+                <md-input v-model="addresLine1"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Addres Line 2</label>
+                <md-input v-model="addresLine2"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Zip code</label>
+                <md-input v-model="zip"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>City</label>
+                <md-input v-model="city"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Country</label>
+                <md-input v-model="country"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Birth date</label>
+                <md-input v-model="birthDate"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Nationality</label>
+                <md-input v-model="nationality"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Height</label>
+                <md-input v-model="height"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Shoe size</label>
+                <md-input v-model="shoeSize"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Hair color</label>
+                <md-input v-model="hairColor"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Eye color</label>
+                <md-input v-model="eyeColor"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Comments</label>
+                <md-input v-model="comments"></md-input>
+            </md-field>
+
+            <md-field>
+                <label>Password</label>
+                <md-input v-model="password"></md-input>
+            </md-field>
+
             <md-card-action>
                 <md-button type="submit">submit</md-button>
             </md-card-action>
@@ -63,7 +97,7 @@
     import router from "../router";
 
     export default {
-        name: 'opretmodel',
+        name: 'OpretModel',
         data: () => ({
             fname: 'Firstname',
             lname: 'LastName',
@@ -80,7 +114,8 @@
             shoeSize: '38',
             eyeColor: 'dark',
             comments: 'hej med dig',
-            password: 'password123'
+            password: 'password123',
+            url: './api/models'
         }),
         methods: {
             submitFunction() {
@@ -110,12 +145,12 @@
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 }).then(res => res.json()).then((token) => {
                     localStorage.setItem("token", token.jwt);
-                    router.push("/opretmodel")
+                    router.push("/")
                 }).catch(error => alert("Error!!! " + error))
             }
         }
-    };
+    }
 </script>
 
-<style scoped>
+<style>
 </style>
