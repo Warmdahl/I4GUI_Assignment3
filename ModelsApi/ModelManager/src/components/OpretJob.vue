@@ -5,11 +5,15 @@
             <md-card class="md-layout-item md-size-50 md-small-size-100">
 
                 <md-card-header>
-
+                    <div class="md-title">Opret Job</div>
                 </md-card-header>
 
-                    <label>Customer</label>
-                    <md-input v-model="customer"></md-input>
+                <md-card-content>
+
+                    <md-field>
+                        <label>Customer</label>
+                        <md-input v-model="customer"></md-input>
+                    </md-field>
 
                     <label>StartDate</label>
                     <md-input v-model="sdate"></md-input>
@@ -23,6 +27,7 @@
                     <label>Comments</label>
                     <md-input v-model="comments"></md-input>
 
+                </md-card-content>
 
             </md-card>
 
