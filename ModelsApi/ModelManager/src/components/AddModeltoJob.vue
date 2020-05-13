@@ -16,15 +16,21 @@
                     </md-field>
 
                     <md-field>
+                        
+                            <label>{{ models[0].firstName }}</label>
+                        
+                    </md-field>
+
+                    <md-field>
                         <label>Job Id</label>
                         <md-input v-model="JobId"></md-input>
                     </md-field>
 
                 </md-card-content>
 
-                <md-card-action>
+                <md-card-actions>
                     <md-button type="submit" class="md-raised">submit</md-button>
-                </md-card-action>
+                </md-card-actions>
             </md-card>
         </form>
     </div>
@@ -34,11 +40,16 @@
     //import router from "../router";
 
     export default {
+        
         name: 'AddModeltoJob',
         data: () => ({
-            ModelId: 'ModelId',
-            JobId: 'JobId',
+            ModelId: 1,
+            JobId: 1,
+            models: []
         }),
+        created:function() {
+            this.loadData();
+        },
         methods: {
             submitFunction() {
                 var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
@@ -62,6 +73,21 @@
                         isLoading: false,
                         message: 'Something bad happened ' + error
                     }));
+            },
+
+            loadData() {
+                var url = "https://localhost:44368/api/models";
+                
+                fetch(url, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    },
+                })
+                    .then(responseJson => {this.models == responseJson.data })
+                    .catch(error => alert("Error!!! " + error));
             }
         }
     };
