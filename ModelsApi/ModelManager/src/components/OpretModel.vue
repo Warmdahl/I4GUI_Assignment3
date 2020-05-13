@@ -112,59 +112,57 @@
     import router from "../router";
 
     export default {
-        name: 'OpretModel',
+        name: "OpretModel",
         data: () => ({
-            fname: 'Firstname',
-            lname: 'LastName',
-            email: '123@mail.dk',
-            phonenr: '12345678',
-            addresLine1: 'asdf',
-            addresLine2: 'qwer',
-            zip: '1234',
-            city: 'asdftown',
-            country: 'qwerland',
-            birthDate: '2020-02-02',
-            nationality: 'danglish',
-            height: 2,
+            fname: "Firstname",
+            lname: "LastName",
+            email: "124@mail.dk",
+            phonenr: "12345678",
+            addresLine1: "asdf",
+            addresLine2: "qwer",
+            zip: "1234",
+            city: "asdftown",
+            country: "qwerland",
+            birthDate: "2020-02-02",
+            nationality: "danglish",
+            height: 2.1,
             shoeSize: 38,
-            eyeColor: 'dark',
-            comments: 'hej med dig',
-            password: 'password123',
-            url: './api/models'
+            eyeColor: "dark",
+            comments: "hej med dig",
+            password: "password123",
+            url: "./api/models"
         }),
         methods: {
             submitFunction() {
                 var url = "https://localhost:44368/api/models";
                 var data = {
-                    firstname: this.fname,
-                    lastname: this.lname,
-                    email: this.email,
-                    phonenr: this.phonenr,
-                    addresLine1: this.addresLine1,
-                    addresLine2: this.addresLine2,
-                    zip: this.zip,
-                    city: this.city,
-                    country: this.country,
-                    birthDate: this.birthDate,
-                    nationality: this.nationality,
-                    height: this.height,
-                    shoeSize: this.shoeSize,
-                    eyeColor: this.eyeColor,
-                    comments: this.comments,
-                    password: this.password
+                    "firstName": this.fname,
+                    "lastName": this.lname,
+                    "email": this.email,
+                    "phoneNo": this.phonenr,
+                    "addresLine1": this.addresLine1,
+                    "addresLine2": this.addresLine2,
+                    "zip": this.zip,
+                    "city": this.city,
+                    "country": this.country,
+                    "birthDate": this.birthDate,
+                    "nationality": this.nationality,
+                    "height": this.height,
+                    "shoeSize": this.shoeSize,
+                    "eyeColor": this.eyeColor,
+                    "comments": this.comments,
+                    "password": this.password
                 };
 
                 fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(data),
-                    credentials: "include",
+                    credentials: 'include',
                     headers: new Headers({
-                        'Authorization': 'Bearer' + localStorage.getItem("token"),
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
-                })
-                    .then(
-                    router.push("/")
+                }).then(router.push("/")
                 ).catch(error => alert("Error!!! " + error))
             }
         }
