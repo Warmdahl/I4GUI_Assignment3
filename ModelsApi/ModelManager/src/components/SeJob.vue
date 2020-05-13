@@ -1,4 +1,4 @@
-<!--<template>
+<template>
     <div>
         <md-card class="md-layout-item md-size-50 md-small-size-100">
 
@@ -12,30 +12,27 @@
 
             </md-card-content>
         </md-card>
-    </div>
-</template>-->
 
-<ul>
-    <template>
-        <li v-for="item in items" :key="item.message">
-            {{ item.message }}
-        </li>
-    </template>
-</ul>
+        <p>Text:  {{ text }} </p>
+    </div>
+</template>
 
 
 <script>
-    import router from "../router";
+    //import router from "../router";
 
     export default {
         name: 'sejob',
-        props: {
+        data: function () {
+            return {
+                text: "Vue is awesome"
+            };
             items: [
                 { message: 'Foo' },
                 { message: 'Bar' }
             ]
         }
-    };
+    }
 </script>
 
 <style>

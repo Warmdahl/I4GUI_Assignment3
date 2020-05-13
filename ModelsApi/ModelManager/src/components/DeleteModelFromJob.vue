@@ -32,37 +32,39 @@
 </template>
 
 <script>
+    //import router from "../router";
+
     export default {
         name: 'DeleteModelfromJob',
         data: () => ({
             ModelId: 'ModelId',
             JobId: 'JobId',
         }),
-        methods: {
-            submitFunction() {
-                var url = "https://localhost:44368/api/Jobs" + this.JobId + "/model/" + this.ModelId; //Skal kigges på!!
-                var data = {
-                    ModelId: this.ModelId,
-                    JobId: this.JobId,
-                };
+        //methods: {
+        //    submitFunction() {
+        //        var url = "https://localhost:44368/api/Jobs" + this.JobId + "/model/" + this.ModelId; //Skal kigges på!!
+        //        var data = {
+        //            ModelId: this.ModelId,
+        //            JobId: this.JobId,
+        //        };
 
-                fetch(url, {
-                    method: 'POST',
-                    credentials: 'include',
-                    headers: {
-                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
-                        'Content-.Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                }).then(ResponseJson => {
-                    data = JSON.parse(ResponseJson);
-                })
-                    .catch(error => this.setState({
-                        isLoading: false,
-                        message: 'Somthing bad happend ' + error
-                    }));
-            }
-        }
+        //        fetch(url, {
+        //            method: 'POST',
+        //            credentials: 'include',
+        //            headers: {
+        //                'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        //                'Content-.Type': 'application/json'
+        //            },
+        //            body: JSON.stringify(data)
+        //        }).then(ResponseJson => {
+        //            data = JSON.parse(ResponseJson);
+        //        })
+        //            .catch(error => this.setState({
+        //                isLoading: false,
+        //                message: 'Somthing bad happend ' + error
+        //            }));
+        //    }
+        //}
     };
 </script>
 
