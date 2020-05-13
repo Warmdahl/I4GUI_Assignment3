@@ -101,17 +101,11 @@
 
                 </md-card-content>
 
-                <md-card-actions>
+                <!--<md-card-actions>
                     <md-button type="submit" class="md-raised">login</md-button>
-                </md-card-actions>
+                </md-card-actions>-->
 
             </md-card>
-
-
-           
-            <md-card-action>
-                <md-button type="submit">submit</md-button>
-            </md-card-action>
         </form>
         </div>
 </template>
