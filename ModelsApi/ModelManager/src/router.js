@@ -39,6 +39,21 @@ export default new Router({
             path: "/opretjob",
             name: "OpretJob",
             component: OpretJob
-        },        {            path: "/addmodeltojob",            name: "AddModeltoJob",            component: AddModeltoJob        },        //{        //    path: "/deletemodelfromjob",        //    name: "DeleteModelfromJob",        //    component: DeleteModelfromJob
-        //},        {            path: "/sejob",            name: "SeJob",            component: SeJob        }    ]
+        },
+        {
+            path: "/addmodeltojob",
+            name: "AddModeltoJob",
+            component: AddModeltoJob
+        },
+        //{
+        //    path: "/deletemodelfromjob",
+        //    name: "DeleteModelfromJob",
+        //    component: DeleteModelfromJob
+        //},
+        {
+            path: "/sejob",
+            name: "SeJob",
+            component: SeJob
+        }
+    ]
 });
