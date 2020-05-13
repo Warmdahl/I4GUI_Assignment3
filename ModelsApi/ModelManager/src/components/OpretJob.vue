@@ -1,47 +1,50 @@
 <template>
     <div>
-        <form>
-            <label>Job Id</label>
-            <md-input v-model="jobid"></md-input>
+        <form @submit.prevent="submitFunction">
+
             <label>Customer</label>
             <md-input v-model="customer"></md-input>
+
             <label>StartDate</label>
             <md-input v-model="sdate"></md-input>
+
             <label>Days</label>
             <md-input v-model="days"></md-input>
+
             <label>Location</label>
             <md-input v-model="location"></md-input>
+
             <label>Comments</label>
             <md-input v-model="comments"></md-input>
-            <label>Models</label>
-            <md-input v-model="models"></md-input>
+
+            <md-card-action>
+                <md-button type="submit">submit</md-button>
+            </md-card-action>
         </form>
     </div>
 </template>
 
 <script>
+    import router from "../router";
+
     export default {
         name: 'opretjob',
-        props: {
-            jobid: 'JobId',
+        data: () => ({
             customer: 'Customer',
             sdate: 'StartDate',
             days: 'Days',
             location: 'Location',
-            comments: 'Comments',
-            models: 'Models'
-        },
+            comments: 'Comments'
+        }),
         methods: {
-            login02Function() {
-                var url = "https://localhost:44368/api/models";
+            submitFunction() {
+                var url = "https://localhost:44368/api/job";
                 var data = {
-                    jobid: this.jobid,
-                    customer: this.customer,
-                    sdate: this.sdate,
-                    days: this.days,
-                    location: this.location,
-                    comments: this.comments,
-                    models: this.models
+                    Customer: this.customer,
+                    Sdate: this.sdate,
+                    Days: this.days,
+                    Location: this.location,
+                    Comments: this.comments
                 };
 
                 fetch(url, {

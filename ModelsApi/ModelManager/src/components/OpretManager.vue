@@ -1,28 +1,38 @@
 <template>
     <div>
-        <form>
+        <form @submit.prevent="submitFunction">
+
             <label>First name</label>
             <md-input v-model="fname"></md-input>
+
             <label>Last name</label>
             <md-input v-model="lname"></md-input>
+
             <label>Email</label>
             <md-input v-model="email"></md-input>
+
             <label>Password</label>
             <md-input v-model="password"></md-input>
+
+            <md-card-action>
+                <md-button type="submit">submit</md-button>
+            </md-card-action>
         </form>
     </div>
 </template>
 
 <script>
+    import router from "../router";
+
     export default {
         name: 'opretmanager',
-        props: {
+        data: () => ({
             fname: 'Firstname',
             lname: 'LastName',
             email: '123@mail.dk'
-        },
+        }),
         methods: {
-            login02Function() {
+            submitFunction() {
                 var url = "https://localhost:44368/api/manager";
                 var data = {
                     firstname: this.fname,
