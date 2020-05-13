@@ -7,12 +7,16 @@
 
             <label>Job Id</label>
             <md-input v-model="JobId"></md-input>
+
+            <md-card-action>
+                <md-button type="submit">submit</md-button>
+            </md-card-action>
         </form>
     </div>
 </template>
 
 <script>
-    import router from "../router";
+    //import router from "../router";
 
     export default {
         name: 'AddModeltoJob',
@@ -22,7 +26,7 @@
         }),
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/Jobs/(JobId)/model/(ModelId)";
+                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
                 var data = {
                     ModelId: this.ModelId,
                     JobId: this.JobId,
@@ -34,7 +38,7 @@
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 }).then(res => res.json()).then((token) => {
                     localStorage.setItem("token", token.jwt);
-                    router.push("/AddModeltoJob")
+                    //router.push("/addmodeltojob")
                 }).catch(error => alert("Error!!! " + error))
             }
         }
