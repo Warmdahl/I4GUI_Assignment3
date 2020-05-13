@@ -19,7 +19,9 @@ export default new Router({
             path: "/login",
             name: "Login",
             component: Login
-        },        {            path: "/opretmodel",
+        },
+        {
+            path: "/opretmodel",
             name: "OpretModel",
             component: OpretModel
         },        {            path: "/opretmanager",
