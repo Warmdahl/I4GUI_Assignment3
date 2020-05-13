@@ -34,17 +34,6 @@ import router from "../router";
             url: './api/account/login'
         }),
         methods: {
-            /*send() {
-                fetch(this.url, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: 'test',
-                        password: 'test'
-                    }), headers: new Headers({ 'Content-Type': 'application/json' })
-                }).then(res => res.json().then((token) => {
-                    localStorage.setItem("token", token.jwt);
-                )
-            },*/
             login02Function() {
                 var url = "https://localhost:44368/api/account/login";
                 var data = {
