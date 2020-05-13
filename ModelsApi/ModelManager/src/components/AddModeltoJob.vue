@@ -2,17 +2,36 @@
     <div>
         <form @submit.prevent="submitFunction">
 
-            <label>Model Id</label>
-            <md-input v-model="ModelId"></md-input>
+            <md-card class="md-layout-item md-size-50 md-small-size-100">
 
-            <label>Job Id</label>
-            <md-input v-model="JobId"></md-input>
+                <md-card-header>
+                    <div class="md-title">Add Model to Job</div>
+                </md-card-header>
+
+                <md-card-content>
+
+                    <md-field>
+                        <label>Model Id</label>
+                        <md-input v-model="ModelId"></md-input>
+                    </md-field>
+
+                    <md-field>
+                        <label>Job Id</label>
+                        <md-input v-model="JobId"></md-input>
+                    </md-field>
+
+                </md-card-content>
+
+                <md-card-action>
+                    <md-button type="submit" class="md-raised">submit</md-button>
+                </md-card-action>
+            </md-card>
         </form>
     </div>
 </template>
 
 <script>
-    import router from "../router";
+    //import router from "../router";
 
     export default {
         name: 'AddModeltoJob',
@@ -22,7 +41,7 @@
         }),
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/Jobs/(JobId)/model/(ModelId)";
+                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
                 var data = {
                     ModelId: this.ModelId,
                     JobId: this.JobId,
@@ -34,7 +53,7 @@
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 }).then(res => res.json()).then((token) => {
                     localStorage.setItem("token", token.jwt);
-                    router.push("/AddModeltoJob")
+                    //router.push("/addmodeltojob")
                 }).catch(error => alert("Error!!! " + error))
             }
         }
