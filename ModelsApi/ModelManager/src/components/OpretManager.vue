@@ -49,25 +49,29 @@
         data: () => ({
             fname: 'Firstname',
             lname: 'LastName',
-            email: '123@mail.dk'
+            email: '123@mail.dk',
+            password: 'sexy'
         }),
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/manager";
+                var url = "https://localhost:44368/api/Managers";
                 var data = {
-                    firstname: this.fname,
-                    lastname: this.lname,
-                    email: this.email
+                    "firstname": this.fname,
+                    "lastname": this.lname,
+                    "email": this.email,
+                    "password": this.password
                 };
 
                 fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(data),
-                    headers: new Headers({ 'Content-Type': 'application/json' })
-                }).then(res => res.json()).then((token) => {
-                    localStorage.setItem("token", token.jwt);
-                    router.push("/opretmanager")
-                }).catch(error => alert("Error!!! " + error))
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(router.push("/")
+                ).catch(error => alert("Error!!! " + error))
             }
         }
     };
