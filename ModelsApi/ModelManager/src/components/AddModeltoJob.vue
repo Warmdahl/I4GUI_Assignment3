@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    //import router from "../router";
+    import router from "../router";
 
     export default {
         name: 'AddModeltoJob',
@@ -39,30 +39,26 @@
             ModelId: 'ModelId',
             JobId: 'JobId',
         }),
-        //methods: {
-        //    submitFunction() {
-        //        var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
-        //        var data = {
-        //            ModelId: this.ModelId,
-        //            JobId: this.JobId, 
-        //        };
+        methods: {
+            submitFunction() {
+                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
+                var data = {
+                    ModelId: this.ModelId,
+                    JobId: this.JobId, 
+                };
 
-        //        fetch(url, {
-        //            method: 'POST', // Or POST, PUT, DELETE
-        //            credentials: 'include',
-        //            headers: {
-        //                'Authorization': 'Bearer ' + localStorage.getItem("token"),
-        //                'Content-Type': 'application/json'
-        //            },
-        //        }).then(responseJson => {
-        //            var items = JSON.parse(responseJson);
-        //        })
-        //            .catch(error => this.setState({
-        //                isLoading: false,
-        //                message: 'Something bad happened ' + error
-        //            }));
-        //    }
-        //}
+                fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(router.push("/")
+                ).catch(error => alert("Error!!! " + error))
+            }
+        }
     };
 </script>
 

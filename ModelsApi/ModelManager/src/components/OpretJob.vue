@@ -53,30 +53,32 @@
         name: 'opretjob',
         data: () => ({
             customer: 'Customer',
-            sdate: 'StartDate',
+            sdate: '2020-05-13T14:17:57.148Z',
             days: 'Days',
             location: 'Location',
             comments: 'Comments'
         }),
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/job";
+                var url = "https://localhost:44368/api/Jobs";
                 var data = {
-                    Customer: this.customer,
-                    Sdate: this.sdate,
-                    Days: this.days,
-                    Location: this.location,
-                    Comments: this.comments
+                    "Customer": this.customer,
+                    "Sdate": this.sdate,
+                    "Days": this.days,
+                    "Location": this.location,
+                    "Comments": this.comments
                 };
 
                 fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(data),
-                    headers: new Headers({ 'Content-Type': 'application/json' })
-                }).then(res => res.json()).then((token) => {
-                    localStorage.setItem("token", token.jwt);
-                    router.push("/opretjob")
-                }).catch(error => alert("Error!!! " + error))
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(router.push("/")
+                ).catch(error => alert("Error!!! " + error))
             }
         }
     };
