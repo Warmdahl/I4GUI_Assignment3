@@ -52,7 +52,7 @@
            
         }),
         mounted() {
-            this.loadData();
+            this.loadData02();
         },
         methods: {
             submitFunction() {
@@ -88,6 +88,21 @@
                 }).then(responseJson => responseJson.json())
                     .then(data => (this.models = data.total))
                 .catch(error => alert("Error!!! " + error));
+            },
+
+            loadData02() {
+                var url = "https://localhost:44368/api/models";
+
+                fetch(url, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(responseJson => responseJson.json())
+                    .then(data => { this.models = data })
+                .catch(error => alert("Server error: " + error))
             }
         }
     };
