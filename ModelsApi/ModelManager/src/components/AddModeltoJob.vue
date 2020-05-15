@@ -51,7 +51,7 @@
             response: null
            
         }),
-        created() {
+        mounted() {
             this.loadData();
         },
         methods: {
