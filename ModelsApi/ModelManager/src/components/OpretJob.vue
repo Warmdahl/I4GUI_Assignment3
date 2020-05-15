@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="submitFunction">
 
-            <md-card class="md-layout-item md-size-50 md-small-size-100">
+            <md-card class="md-layout-item md-size-55 md-small-size-50">
 
                 <md-card-header>
                     <div class="md-title">Opret Job</div>
@@ -16,8 +16,11 @@
                     </md-field>
 
                     <md-field>
-                        <label>StartDate</label>
-                        <md-input v-model="sdate"></md-input>
+                        <div class="block md-layout-item" md-size-100>
+                            <md-datepicker v-model="sdate" background="007AFF">
+                                <label>Start date</label>
+                            </md-datepicker>
+                        </div>
                     </md-field>
 
                     <md-field>
@@ -53,7 +56,7 @@
         name: 'opretjob',
         data: () => ({
             customer: 'Customer',
-            sdate: '2020-05-13T14:17:57.148Z',
+            sdate: '2020-05-13',
             days: 1,
             location: 'Location',
             comments: 'Comments'

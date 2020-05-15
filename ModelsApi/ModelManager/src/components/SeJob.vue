@@ -8,9 +8,32 @@
 
             <md-card-content>
 
+                <label>Job</label>
                 <md-field>
-                    <label>Under Construction</label>
-                    <img src="../assets/Under_Construction.jpg" />
+                    
+                    
+                        <md-table>
+                            
+                                <md-table-row>
+                                    <md-table-head>Customer</md-table-head>
+                                    <md-table-head>Start date</md-table-head>
+                                    <md-table-head>Nomber of days</md-table-head>
+                                    <md-table-head>location</md-table-head>
+                                    <md-table-head>Comment</md-table-head>
+                                </md-table-row>
+                            
+                            
+                            <md-table-row v-for="job in jobs" v-bind:key="job.efJobId">
+                                <md-table-cell>{{job.customer}}</md-table-cell>
+                                <md-table-cell>{{job.startDate}}</md-table-cell>
+                                <md-table-cell>{{job.days}}</md-table-cell>
+                                <md-table-cell>{{job.location}}</md-table-cell>
+                                <md-table-cell>{{job.comments}}</md-table-cell>
+
+                            </md-table-row>
+                            
+                        </md-table>
+                   
                 </md-field>
 
             </md-card-content>
@@ -22,9 +45,35 @@
     //import router from "../router";
 
     export default {
-        name: 'sejob',
-        
+        name: 'SeJob',
+
+        data: () => ({
+            jobs: null,
+            models: null
+        }),
+
+        mounted() {
+            this.loadJobs();
+        },
+
+        methods: {
+
+            loadJobs() {
+                fetch("https://localhost:44368/api/jobs", {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(responseJson => responseJson.json())
+                    .then(data => { this.jobs = data })
+                    .catch(error => alert("Error!!! " + error));
+            }
+        }
     };
+        
+    
 </script>
 
 <style>
