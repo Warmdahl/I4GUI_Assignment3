@@ -21,10 +21,10 @@
 <script>
     //import router from "../router";
 
-    //export default {
-    //    name: 'sejob',
+    export default {
+        name: 'sejob',
         
-    //};
+    };
 </script>
 
 <style>

@@ -15,7 +15,6 @@
                         <md-input v-model="fname"></md-input>
                     </md-field>
 
-
                     <md-field>
                         <label>Last name</label>
                         <md-input v-model="lname"></md-input>
@@ -25,7 +24,6 @@
                         <label>Email</label>
                         <md-input v-model="email"></md-input>
                     </md-field>
-
 
                     <md-field>
                         <label>Phone nr</label>
