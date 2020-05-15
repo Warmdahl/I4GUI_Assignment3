@@ -5,7 +5,7 @@
             <md-card class="md-layout-item md-size-50 md-small-size-100">
 
                 <md-card-header>
-                    <div class="md-title">Add Model to Job</div>
+                    <div class="md-title">Delete Model From Job</div>
                 </md-card-header>
 
                 <md-card-content>
@@ -31,22 +31,21 @@
 </template>
 
 <script>
-    //import router from "../router";
-
     export default {
-        
-        name: 'AddModeltoJob',
+
+        name: 'DeleteModel_FromJob',
         data: () => ({
             ModelId: 1,
             JobId: 1,
             models: null,
             response: null
-           
+
         }),
         mounted() {
             this.loadData();
         },
         methods: {
+
             submitFunction() {
                 var url = "https://localhost:44368/api/jobs/" + this.JobId + "/model/" + this.ModelId;
                 var data = {
@@ -77,10 +76,10 @@
                     })
                 }).then(responseJson => responseJson.json())
                     .then(data => { this.models = data })
-                .catch(error => alert("Server error: " + error))
+                    .catch(error => alert("Server error: " + error))
             }
         }
-    };
+    }
 </script>
 
 <style scoped>

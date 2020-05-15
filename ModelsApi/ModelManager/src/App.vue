@@ -36,7 +36,7 @@
                         <md-tab id="tab-opretmanager" md-label="Opret Manager" to="/opretmanager" exact></md-tab>
                         <md-tab id="tab-opretjob" md-label="Opret Job" to="/opretjob" exact></md-tab>
                         <md-tab id="tab-addmodeltojob" md-label="Add Model To Job" to="/addmodeltojob" exact></md-tab>
-                        <md-tab id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodelfromjob" exact></md-tab>
+                        <md-tab id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodel_fromjob" exact></md-tab>
                         <md-tab id="tab-sejob" md-label="Se Job" to="/sejob" exact></md-tab>
 
                     </md-tabs>

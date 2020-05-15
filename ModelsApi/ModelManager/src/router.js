@@ -6,6 +6,7 @@ import OpretModel from './components/OpretModel.vue';
 import OpretManager from './components/OpretManager.vue';
 import OpretJob from './components/OpretJob.vue';
 import AddModeltoJob from './components/AddModeltoJob.vue';
+import DeleteModel_FromJob from './components/DeleteModel_FromJob.vue';
 //import DeleteModelfromJob from './components/DeleteModelfromJob.vue';
 //import SeJob from './components/SeJob.vue';
 
@@ -44,7 +45,15 @@ export default new Router({
             path: "/addmodeltojob",
             name: "AddModeltoJob",
             component: AddModeltoJob
-        }/*,
+        },
+        {
+            path: "/deletemodel_fromjob",
+            name: "DeleteModel_FromJob",
+            component: DeleteModel_FromJob
+        }
+
+
+        /*
         {
             path: "/deletemodelfromjob",
             name: "DeleteModelfromJob",
