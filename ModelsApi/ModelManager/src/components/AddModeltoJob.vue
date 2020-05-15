@@ -17,7 +17,9 @@
 
                     <md-field>
                         
-                            <label>{{ models[0].firstName }}</label>
+                            <li v-for="model in this.models" :key="model.efModelId">
+                        <label value={model.firstName}></label>
+                            </li>
                         
                     </md-field>
 
@@ -37,7 +39,7 @@
 </template>
 
 <script>
-    import router from "../router";
+    //import router from "../router";
 
     export default {
         
@@ -45,35 +47,32 @@
         data: () => ({
             ModelId: 1,
             JobId: 1,
-            models: []
+            models: null,
+            response: null
+           
         }),
-        created:function() {
+        created() {
             this.loadData();
         },
         methods: {
             submitFunction() {
-                var url = "https://localhost:44368/api/Jobs/" + this.JobId + "/model/" + this.ModelId;
-                var data = {
-                    ModelId: this.ModelId,
-                    JobId: this.JobId, 
-                };
+                var url = "https://localhost:44368/api/jobs/" + this.JobId + "/model/" + this.ModelId;
+                /*var data = {
+                    "ModelId": this.ModelId,
+                    "JobId": this.JobId
+                };*/
 
                 fetch(url, {
                     method: 'POST',
-                    body: JSON.stringify(data),
+                    //body: JSON.stringify(data),
                     credentials: 'include',
                     headers: new Headers({
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
-                    },
-                    body: Json.stringify(data)
+                    })
                 }).then(responseJson => {
-                    data = JSON.parse(responseJson);
-                })
-                    .catch(error => this.setState({
-                        isLoading: false,
-                        message: 'Something bad happened ' + error
-                    }));
+                    this.response = JSON.parse(responseJson);
+                }).catch(error => alert("Error " + error));
             },
 
             loadData() {
@@ -82,13 +81,13 @@
                 fetch(url, {
                     method: 'GET',
                     credentials: 'include',
-                    headers: {
+                    headers: new Headers({
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
-                    },
-                })
-                    .then(responseJson => {this.models == responseJson.data })
-                    .catch(error => alert("Error!!! " + error));
+                    })
+                }).then(responseJson => responseJson.json())
+                    .then(data => (this.models = data.total))
+                .catch(error => alert("Error!!! " + error));
             }
         }
     };

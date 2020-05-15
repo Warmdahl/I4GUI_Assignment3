@@ -37,9 +37,9 @@
 
                 </md-card-content>
 
-                <md-card-action>
+                <md-card-actions>
                     <md-button type="submit" class="md-raised">submit</md-button>
-                </md-card-action>
+                </md-card-actions>
 
             </md-card>
         </form>
@@ -54,7 +54,7 @@
         data: () => ({
             customer: 'Customer',
             sdate: '2020-05-13T14:17:57.148Z',
-            days: 'Days',
+            days: 1,
             location: 'Location',
             comments: 'Comments'
         }),
