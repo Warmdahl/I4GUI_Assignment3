@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit.prevent="submitFunction">
+        <form @submit.prevent="callJob">
 
             <md-card class="md-layout-item md-size-50 md-small-size-100">
 
@@ -10,23 +10,26 @@
 
                 <md-card-content>
 
+                    <label>Job</label>
                     <md-field>
-                        <label>Model Id</label>
-                        <md-input v-model="ModelId"></md-input>
+                        <select v-model="selectedJob">
+                            <option disabled value="">Please select option</option>
+                            <option v-for="job in jobs" :key="job.efJobId" v-bind:value="job.efJobId">{{ job.customer }}</option>
+                        </select>
                     </md-field>
 
-                    <md-field>
-                        <label>Job Id</label>
-                        <md-input v-model="JobId"></md-input>
-                    </md-field>
+                    <div class="md-title">{{specificjobModel.models[0].firstName}}</div>
 
                 </md-card-content>
+
 
                 <md-card-actions>
                     <md-button type="submit" class="md-raised">submit</md-button>
                 </md-card-actions>
             </md-card>
         </form>
+
+
     </div>
 </template>
 
@@ -35,38 +38,70 @@
 
         name: 'DeleteModel_FromJob',
         data: () => ({
-            ModelId: 1,
-            JobId: 1,
+            selectedModel: 1,
+            i: 0,
+            selectedJob: 1,
             models: null,
-            response: null
-
+            jobs: null,
+            response: null,
+            specificjobModel: ({
+                models: [{
+                    email: "default@m.dk",
+                    firstName: "default first name",
+                    lastName: "default last name",
+                    phoneNo: "+00 00 00 00",
+                }, {
+                    email: "default22@m.dk",
+                    firstName: "default22 first name",
+                    lastName: "default22 last name",
+                    phoneNo: "+00 00 00 22",
+                }]
+            })
         }),
         mounted() {
             this.loadData();
+
         },
         methods: {
+            
 
-            submitFunction() {
-                var url = "https://localhost:44368/api/jobs/" + this.JobId + "/model/" + this.ModelId;
-                var data = {
-                    "ModelId": this.ModelId,
-                    "JobId": this.JobId
-                };
+            callJob()
+            {
 
-                fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
+                //console.log(this.specificjobModel)
+
+
+                fetch("https://localhost:44368/api/jobs/" + this.selectedJob, {
+                    method: 'GET',
                     credentials: 'include',
                     headers: new Headers({
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
-                }).catch(error => alert("Error " + error));
+                }).then(responseJson => responseJson.json())
+                    .then(data => {
+                    this.specificjobModel = data
+                    }).catch(error => alert("Error!!! " + error));
             },
 
+
+            submitFunction() {
+
+
+                //var url = "https://localhost:44368/api/jobs/" + this.selectedJob + "/model/" + this.selectedModel;
+                //fetch(url, {
+                //    method: 'DELETE',
+                //    credentials: 'include',
+                //    headers: new Headers({
+                //        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                //        'Content-Type': 'application/json'
+                //    })
+                //}).then(responseJson => responseJson.json())
+                //    .then(data => { this.response = data })
+                //    .catch(error => alert("Error!!! " + error));
+            },
             loadData() {
                 var url = "https://localhost:44368/api/models";
-
                 fetch(url, {
                     method: 'GET',
                     credentials: 'include',
@@ -76,7 +111,18 @@
                     })
                 }).then(responseJson => responseJson.json())
                     .then(data => { this.models = data })
-                    .catch(error => alert("Server error: " + error))
+                    .catch(error => alert("Error!!! " + error));
+
+                fetch("https://localhost:44368/api/jobs", {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(responseJson => responseJson.json())
+                    .then(data => { this.jobs = data })
+                    .catch(error => alert("Error!!! " + error));
             }
         }
     }

@@ -20,15 +20,10 @@
 
                     <label>Job</label>
                     <md-field>
-<<<<<<< HEAD
-                        <label>Job Id</label>
-                        <md-input v-model="JobId"></md-input>
-=======
                         <select v-model="selectedJob">
                             <option disabled value="">Please select option</option>
                             <option v-for="job in jobs" :key="job.efJobId" v-bind:value="job.efJobId">{{ job.customer }}</option>
                         </select>
->>>>>>> master
                     </md-field>
 
                 </md-card-content>
@@ -43,9 +38,8 @@
 
 <script>
     //import router from "../router";
-
     export default {
-        
+
         name: 'AddModeltoJob',
         data: () => ({
             selectedModel: 1,
@@ -55,49 +49,26 @@
             jobs: null,
             response: null
         }),
-
         mounted() {
             this.loadData();
-<<<<<<< HEAD
-        },
-        methods: {
-            submitFunction() {
-                var url = "https://localhost:44368/api/jobs/" + this.JobId + "/model/" + this.ModelId;
-                var data = {
-                    "ModelId": this.ModelId,
-                    "JobId": this.JobId
-                };
 
-                fetch(url, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-=======
-            
         },
         methods: {
             submitFunction() {
                 var url = "https://localhost:44368/api/jobs/" + this.selectedJob + "/model/" + this.selectedModel;
-
                 fetch(url, {
                     method: 'POST',
->>>>>>> master
                     credentials: 'include',
                     headers: new Headers({
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
-<<<<<<< HEAD
-=======
                 }).then(responseJson => {
                     this.response = JSON.parse(responseJson)
->>>>>>> master
                 }).catch(error => alert("Error " + error));
             },
-
             loadData() {
                 var url = "https://localhost:44368/api/models";
-<<<<<<< HEAD
-=======
                 fetch(url, {
                     method: 'GET',
                     credentials: 'include',
@@ -106,10 +77,8 @@
                         'Content-Type': 'application/json'
                     })
                 }).then(responseJson => responseJson.json())
-                    .then(data => { this.models = data})
+                    .then(data => { this.models = data })
                     .catch(error => alert("Error!!! " + error));
->>>>>>> master
-
                 fetch("https://localhost:44368/api/jobs", {
                     method: 'GET',
                     credentials: 'include',
