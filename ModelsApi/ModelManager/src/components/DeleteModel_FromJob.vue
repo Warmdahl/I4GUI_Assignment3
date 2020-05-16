@@ -10,32 +10,62 @@
 
                 <md-card-content>
 
-                    <label>Job</label>
+                    <div class="md-subheading">Job</div>
+                    <div class="md-caption">Select a job to view the moddels assigned the job.</div>
+
                     <md-field>
-                        <select v-model="selectedJob">
-                            <option disabled value="">Please select option</option>
-                            <option v-for="job in jobs" :key="job.efJobId" v-bind:value="job.efJobId">{{ job.customer }}</option>
+                        <select v-model="selectedJob" style="background-color: black; color:white" v-on:click="callJob">
+                            <option disabled value="">Please select Job</option>
+                            <option v-for="job in jobs" :key="job.efJobId" v-bind:value="job.efJobId">{{ job.customer }} </option>
                         </select>
                     </md-field>
-
-                    <div class="md-title">{{specificjobModel.models[0].firstName}}</div>
-
                 </md-card-content>
 
-
-                <md-card-actions>
-                    <md-button type="submit" class="md-raised">submit</md-button>
-                </md-card-actions>
             </md-card>
         </form>
+        <form @submit.prevent="deleteModelFromJobFunction">
+            <md-card class="md-layout-item md-size-50 md-small-size-100">
 
+                <md-card-content>
+                    <div class="md-subheading">Model</div>
 
+                    <div v-if="(jobModels.models != 0)&&(jobModels.models.length > 0)">
+                        <div v-if="(jobModels.models.length > 1)">
+                            <div class="md-caption">There are {{jobModels.models.length}} Models assigned this job.</div>
+                        </div>
+                        <div v-else>
+                            <div class="md-caption">There is {{jobModels.models.length}} Model assigned this job.</div>
+                        </div>
+                        <div class="md-caption">To delete a model from the job select one from the drop down below.</div>
+                        <md-field>
+                            <select v-model="selectedModel" style="background-color: black; color:white">
+                                <option disabled value="">Please select Model</option>
+                                <option v-for="model in jobModels.models" :key="model.phoneNo" v-bind:value="model.phoneNo">{{model.firstName}}</option>
+                            </select>
+                        </md-field>
+
+                        <md-card-actions>
+                            <md-button type="submit" class="md-raised">Delete model from job</md-button>
+                        </md-card-actions>
+                    </div>
+                    <div v-else>
+                        <div class="md-caption">There are no Models assigned this job.</div>
+                        <!--<md-field>
+                            <select style="background-color: black; color:white">
+                                <option disabled value="">No Model assigned to job</option>
+                            </select>
+                        </md-field>-->
+                    </div>
+                </md-card-content>
+            </md-card>
+        </form>
     </div>
 </template>
 
 <script>
-    export default {
+    import router from "../router";
 
+    export default {
         name: 'DeleteModel_FromJob',
         data: () => ({
             selectedModel: 1,
@@ -44,18 +74,15 @@
             models: null,
             jobs: null,
             response: null,
-            specificjobModel: ({
-                models: [{
-                    email: "default@m.dk",
-                    firstName: "default first name",
-                    lastName: "default last name",
-                    phoneNo: "+00 00 00 00",
-                }, {
-                    email: "default22@m.dk",
-                    firstName: "default22 first name",
-                    lastName: "default22 last name",
-                    phoneNo: "+00 00 00 22",
-                }]
+            jobModels: ({
+                models: [
+                    //{
+                //    email: "default@m.dk",
+                //    firstName: "default first name",
+                //    lastName: "default last name",
+                //    phoneNo: "+00 00 00 00",
+                //}
+                ]
             })
         }),
         mounted() {
@@ -68,8 +95,6 @@
             callJob()
             {
 
-                //console.log(this.specificjobModel)
-
 
                 fetch("https://localhost:44368/api/jobs/" + this.selectedJob, {
                     method: 'GET',
@@ -80,26 +105,46 @@
                     })
                 }).then(responseJson => responseJson.json())
                     .then(data => {
-                    this.specificjobModel = data
+                        this.jobModels = data
                     }).catch(error => alert("Error!!! " + error));
+
+                //console.log(this.jobModels.models.length);
+                //console.log(this.jobModels.models);
             },
 
 
-            submitFunction() {
+            deleteModelFromJobFunction()
+            {
+                var noModels = this.models.length;
+                var selectedModelID;
 
+                for (var i=0; i < noModels; i++)
+                {
+                    if (this.models[i].phoneNo == this.selectedModel)
+                    {
+                        selectedModelID = this.models[i].efModelId;
+                        //console.log("selectedModelID "+selectedModelID);
+                    }
+                }
 
-                //var url = "https://localhost:44368/api/jobs/" + this.selectedJob + "/model/" + this.selectedModel;
-                //fetch(url, {
-                //    method: 'DELETE',
-                //    credentials: 'include',
-                //    headers: new Headers({
-                //        'Authorization': 'Bearer ' + localStorage.getItem("token"),
-                //        'Content-Type': 'application/json'
-                //    })
-                //}).then(responseJson => responseJson.json())
-                //    .then(data => { this.response = data })
-                //    .catch(error => alert("Error!!! " + error));
+                var url = "https://localhost:44368/api/jobs/" + this.selectedJob + "/model/" + selectedModelID;
+                fetch(url, {
+                    method: 'DELETE',
+                    credentials: 'include',
+                    headers: new Headers({
+                        'Authorization': 'Bearer ' + localStorage.getItem("token"),
+                        'Content-Type': 'application/json'
+                    })
+                }).then(responseJson => responseJson.json())
+                    .then(data => {
+                        this.response = data
+                    })
+                    .catch(error => alert("Error!!! " + error));
+
+                callJob();
             },
+
+
             loadData() {
                 var url = "https://localhost:44368/api/models";
                 fetch(url, {
