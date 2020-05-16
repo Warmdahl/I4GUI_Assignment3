@@ -25,7 +25,7 @@
 
                     <md-field>
                         <label>Days</label>
-                        <md-input v-model="days"></md-input>
+                        <md-input v-model="days" type="number"></md-input>
                     </md-field>
 
                     <md-field>
@@ -65,11 +65,11 @@
             submitFunction() {
                 var url = "https://localhost:44368/api/Jobs";
                 var data = {
-                    "Customer": this.customer,
-                    "Sdate": this.sdate,
-                    "Days": this.days,
-                    "Location": this.location,
-                    "Comments": this.comments
+                    "customer": this.customer,
+                    "startDate": this.sdate,
+                    "days": this.days,
+                    "location": this.location,
+                    "comments": this.comments
                 };
 
                 fetch(url, {
@@ -80,7 +80,7 @@
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
-                }).then(router.push("/")
+                }).then(router.push("/sejob")
                 ).catch(error => alert("Error!!! " + error))
             }
         }

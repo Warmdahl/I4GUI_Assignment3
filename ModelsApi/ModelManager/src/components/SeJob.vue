@@ -17,7 +17,7 @@
                                 <md-table-row>
                                     <md-table-head>Customer</md-table-head>
                                     <md-table-head>Start date</md-table-head>
-                                    <md-table-head>Nomber of days</md-table-head>
+                                    <md-table-head>Number of days</md-table-head>
                                     <md-table-head>location</md-table-head>
                                     <md-table-head>Comment</md-table-head>
                                 </md-table-row>
