@@ -29,7 +29,7 @@
                 <div>
                     <md-tabs md-sync-route >
                         <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
-                        <md-tab id="tab-login" md-label="Login" to="/" exact></md-tab>
+                        <md-tab id="tab-login" md-label="Login" to="/login" exact></md-tab>
                         <md-tab id="tab-opretmodel" md-label="Opret Model" to="/opretmodel" exact></md-tab>
                         <md-tab id="tab-opretmanager" md-label="Opret Manager" to="/opretmanager" exact></md-tab>
                         <md-tab id="tab-opretjob" md-label="Opret Job" to="/opretjob" exact></md-tab>
