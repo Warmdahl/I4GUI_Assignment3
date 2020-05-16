@@ -48,7 +48,6 @@
                         </md-field>
                         
                         <md-card-actions>
-                            <md-icon>menu</md-icon>
                             <md-button type="submit" style="background-color: dimgray; color:white" class="md-raised"><img src="../assets/delete.jpg" /></md-button>
                         </md-card-actions>
 
