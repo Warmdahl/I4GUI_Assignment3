@@ -46,9 +46,10 @@
                                 <option v-for="model in jobModels.models" :key="model.email" v-bind:value="model.email">{{model.firstName}}</option>
                             </select>
                         </md-field>
-
+                        
                         <md-card-actions>
-                            <md-button type="submit" class="md-raised">Delete model from job</md-button>
+                            <md-icon>menu</md-icon>
+                            <md-button type="submit" style="background-color: dimgray; color:white" class="md-raised"><img src="../assets/delete.jpg" /></md-button>
                         </md-card-actions>
 
                     </div>
@@ -67,6 +68,7 @@
 </template>
 
 <script>
+
     export default {
         name: 'DeleteModel_FromJob',
 

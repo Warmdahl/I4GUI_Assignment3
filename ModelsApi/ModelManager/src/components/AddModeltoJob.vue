@@ -29,7 +29,7 @@
                 </md-card-content>
 
                 <md-card-actions>
-                    <md-button type="submit" class="md-raised">submit</md-button>
+                                                <md-button type="submit" style="background-color: dimgray; color:white" class="md-raised"><img src="../assets/add.png"/></md-button>
                 </md-card-actions>
             </md-card>
         </form>

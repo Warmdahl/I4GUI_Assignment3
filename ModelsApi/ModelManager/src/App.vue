@@ -16,7 +16,7 @@
     </div>-->
 
 
-    <div class="page-container"  id="app">
+    <!--<div class="page-container" id="app">
         <md-app md-waterfall md-mode="fixed-last">
             <md-app-toolbar class="md-large md-dense md-secondary">
                 <div class="md-toolbar-row">
@@ -43,7 +43,78 @@
                 <router-view></router-view>
             </md-app-content>
         </md-app>
+    </div>-->
+
+
+
+
+    <div class="page-container" id="app">
+        <md-app md-waterfall md-mode="fixed">
+            <md-app-toolbar class="md-primary">
+                <span class="md-title">Model Manager</span>
+            </md-app-toolbar>
+
+            <md-app-drawer md-permanent="full">
+                <md-toolbar class="md-transparent" md-elevation="0">
+                    Navigation
+                </md-toolbar>
+
+
+                <md-list>
+                    <md-list-item id="tab-login" to="/" exact>
+                        <md-icon><img src="./assets/key.png" /></md-icon>
+                        <span class="md-list-item-text">Login</span>
+                    </md-list-item>
+
+                    <md-list-item id="tab-opretmodel" md-label="Opret Model" to="/opretmodel" exact>
+                        <md-icon><img src="./assets/AddModel.png" /></md-icon>
+                        <span class="md-list-item-text">Opret Model</span>
+                    </md-list-item>
+
+                    <md-list-item id="tab-opretmanager" md-label="Opret Manager" to="/opretmanager" exact>
+                        <md-icon><img src="./assets/addManager.png" /></md-icon>
+                        <span class="md-list-item-text">Opret Manager</span>
+                    </md-list-item>
+
+                    <md-list-item id="tab-opretjob" md-label="Opret Job" to="/opretjob" exact>
+                        <md-icon><img src="./assets/addJob.png" /></md-icon>
+                        <span class="md-list-item-text">Opret Job</span>
+                    </md-list-item> 
+                     
+                    <md-list-item id="tab-addmodeltojob" md-label="Add Model To Job" to="/addmodeltojob" exact>
+                        <md-icon><img src="./assets/addModelToJob.png" /></md-icon>
+                        <span class="md-list-item-text">Add Model to Job</span>
+                    </md-list-item>
+
+                    <md-list-item id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodel_fromjob" exact>
+                        <md-icon><img src="./assets/deleteModelToJob.png" /></md-icon>
+                        <span class="md-list-item-text">Delete Model From Job</span>
+                    </md-list-item>
+
+                    <md-list-item id="tab-sejob" md-label="Se Job" to="/sejob" exact>
+                        <md-icon><img src="./assets/seejobs.png" /></md-icon>
+                        <span class="md-list-item-text">Se Job</span>
+                    </md-list-item>
+
+                    <md-list-item id="tab-addexpensetojob" md-label="Add expense to job" to="/addexpensetojob" exact>
+                        <md-icon><img src="./assets/money.png" /></md-icon>
+                        <span class="md-list-item-text">Add Expense To Job</span>
+                    </md-list-item>
+
+
+
+
+                </md-list>
+            </md-app-drawer>
+
+            <md-app-content>
+                <router-view></router-view>
+            </md-app-content>
+        </md-app>
     </div>
+
+
+
 </template>
 
 <script>
