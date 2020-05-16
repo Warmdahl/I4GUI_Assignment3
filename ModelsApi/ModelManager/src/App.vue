@@ -21,26 +21,24 @@
             <md-app-toolbar class="md-large md-dense md-secondary">
                 <div class="md-toolbar-row">
                     <div class="md-toolbar-section-start">
-
                         <span class="md-title">Model Manager</span>
                     </div>
                 </div>
 
                 <div>
-                    <md-tabs md-sync-route >
-                        <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
-                        <md-tab id="tab-login" md-label="Login" to="/login" exact></md-tab>
+                    <md-tabs md-sync-route>
+
+                        <md-tab id="tab-login" md-label="Login" to="/" exact></md-tab>
                         <md-tab id="tab-opretmodel" md-label="Opret Model" to="/opretmodel" exact></md-tab>
                         <md-tab id="tab-opretmanager" md-label="Opret Manager" to="/opretmanager" exact></md-tab>
                         <md-tab id="tab-opretjob" md-label="Opret Job" to="/opretjob" exact></md-tab>
                         <md-tab id="tab-addmodeltojob" md-label="Add Model To Job" to="/addmodeltojob" exact></md-tab>
                         <md-tab id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodel_fromjob" exact></md-tab>
                         <md-tab id="tab-sejob" md-label="Se Job" to="/sejob" exact></md-tab>
-
+                        <md-tab id="tab-addexpensetojob" md-label="Add expense to job" to="/addexpensetojob" exact></md-tab>
                     </md-tabs>
                 </div>
             </md-app-toolbar>
-
             <md-app-content>
                 <router-view></router-view>
             </md-app-content>
@@ -55,6 +53,5 @@
     
 </script>
 
-<style scoped>
-    
+<style>
 </style>

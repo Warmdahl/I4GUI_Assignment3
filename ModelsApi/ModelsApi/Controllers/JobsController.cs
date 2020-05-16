@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using ModelsApi.Data;
 using ModelsApi.Models.DTOs;
 using ModelsApi.Models.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
