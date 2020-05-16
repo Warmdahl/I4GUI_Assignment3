@@ -38,6 +38,9 @@
     <Content Include="src\components\DeleteModelfromJob.vue">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="src\components\DeleteModel_FromJob.vue">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="src\components\OpretJob.vue">
       <SubType>Code</SubType>
     </Content>
