@@ -63,8 +63,6 @@
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
-                }).then(responseJson => {
-                    this.response = JSON.parse(responseJson)
                 }).catch(error => alert("Error " + error));
             },
             loadData() {

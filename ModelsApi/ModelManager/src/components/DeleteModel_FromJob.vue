@@ -30,23 +30,27 @@
                     <div class="md-subheading">Model</div>
 
                     <div v-if="(jobModels.models != 0)&&(jobModels.models.length > 0)">
+
                         <div v-if="(jobModels.models.length > 1)">
                             <div class="md-caption">There are {{jobModels.models.length}} Models assigned this job.</div>
                         </div>
                         <div v-else>
                             <div class="md-caption">There is {{jobModels.models.length}} Model assigned this job.</div>
                         </div>
+
                         <div class="md-caption">To delete a model from the job select one from the drop down below.</div>
+
                         <md-field>
                             <select v-model="selectedModel" style="background-color: black; color:white">
                                 <option disabled value="">Please select Model</option>
-                                <option v-for="model in jobModels.models" :key="model.phoneNo" v-bind:value="model.phoneNo">{{model.firstName}}</option>
+                                <option v-for="model in jobModels.models" :key="model.email" v-bind:value="model.email">{{model.firstName}}</option>
                             </select>
                         </md-field>
 
                         <md-card-actions>
                             <md-button type="submit" class="md-raised">Delete model from job</md-button>
                         </md-card-actions>
+
                     </div>
                     <div v-else>
                         <div class="md-caption">There are no Models assigned this job.</div>
@@ -63,10 +67,9 @@
 </template>
 
 <script>
-    import router from "../router";
-
     export default {
         name: 'DeleteModel_FromJob',
+
         data: () => ({
             selectedModel: 1,
             i: 0,
@@ -83,19 +86,17 @@
                 //    phoneNo: "+00 00 00 00",
                 //}
                 ]
-            })
+            }),
         }),
         mounted() {
             this.loadData();
-
+            this.callJob();
         },
         methods: {
             
 
             callJob()
             {
-
-
                 fetch("https://localhost:44368/api/jobs/" + this.selectedJob, {
                     method: 'GET',
                     credentials: 'include',
@@ -107,43 +108,33 @@
                     .then(data => {
                         this.jobModels = data
                     }).catch(error => alert("Error!!! " + error));
-
-                //console.log(this.jobModels.models.length);
-                //console.log(this.jobModels.models);
             },
 
-
-            deleteModelFromJobFunction()
+            async deleteModelFromJobFunction()
             {
                 var noModels = this.models.length;
                 var selectedModelID;
 
                 for (var i=0; i < noModels; i++)
                 {
-                    if (this.models[i].phoneNo == this.selectedModel)
+                    if (this.models[i].email == this.selectedModel)
                     {
                         selectedModelID = this.models[i].efModelId;
-                        //console.log("selectedModelID "+selectedModelID);
                     }
                 }
 
                 var url = "https://localhost:44368/api/jobs/" + this.selectedJob + "/model/" + selectedModelID;
-                fetch(url, {
+                await fetch(url, {
                     method: 'DELETE',
                     credentials: 'include',
                     headers: new Headers({
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     })
-                }).then(responseJson => responseJson.json())
-                    .then(data => {
-                        this.response = data
-                    })
-                    .catch(error => alert("Error!!! " + error));
+                }).catch(error => alert("Error!!! " + error));
 
-                callJob();
+                this.callJob();
             },
-
 
             loadData() {
                 var url = "https://localhost:44368/api/models";
