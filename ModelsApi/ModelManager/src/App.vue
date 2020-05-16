@@ -82,17 +82,17 @@
                     </md-list-item> 
                      
                     <md-list-item id="tab-addmodeltojob" md-label="Add Model To Job" to="/addmodeltojob" exact>
-                        <md-icon><img src="./assets/addModelToJob.png" /></md-icon>
+                        <md-icon><img src="./assets/addtojob.png" /></md-icon>
                         <span class="md-list-item-text">Add Model to Job</span>
                     </md-list-item>
 
                     <md-list-item id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodel_fromjob" exact>
-                        <md-icon><img src="./assets/deleteModelToJob.png" /></md-icon>
+                        <md-icon><img src="./assets/deletefromjob.png" /></md-icon>
                         <span class="md-list-item-text">Delete Model From Job</span>
                     </md-list-item>
 
                     <md-list-item id="tab-sejob" md-label="Se Job" to="/sejob" exact>
-                        <md-icon><img src="./assets/seejobs.png" /></md-icon>
+                        <md-icon><img src="./assets/seejob.png" /></md-icon>
                         <span class="md-list-item-text">Se Job</span>
                     </md-list-item>
 
