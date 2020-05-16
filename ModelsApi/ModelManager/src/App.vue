@@ -26,8 +26,8 @@
                 </div>
 
                 <div>
-                    <md-tabs md-sync-route >
-                        <md-tab id="tab-home" md-label="Home" to="/" exact></md-tab>
+                    <md-tabs md-sync-route>
+
                         <md-tab id="tab-login" md-label="Login" to="/" exact></md-tab>
                         <md-tab id="tab-opretmodel" md-label="Opret Model" to="/opretmodel" exact></md-tab>
                         <md-tab id="tab-opretmanager" md-label="Opret Manager" to="/opretmanager" exact></md-tab>
@@ -35,6 +35,7 @@
                         <md-tab id="tab-addmodeltojob" md-label="Add Model To Job" to="/addmodeltojob" exact></md-tab>
                         <md-tab id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodel_fromjob" exact></md-tab>
                         <md-tab id="tab-sejob" md-label="Se Job" to="/sejob" exact></md-tab>
+                        <md-tab id="tab-addexpensetojob" md-label="Add expense to job" to="/addexpensetojob" exact></md-tab>
                     </md-tabs>
                 </div>
             </md-app-toolbar>

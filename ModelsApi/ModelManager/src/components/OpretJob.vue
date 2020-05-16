@@ -2,7 +2,7 @@
     <div>
         <form @submit.prevent="submitFunction">
 
-            <md-card class="md-layout-item md-size-55 md-small-size-50">
+            <md-card class="md-layout-item md-size-59 md-small-size-100">
 
                 <md-card-header>
                     <div class="md-title">Opret Job</div>
@@ -67,7 +67,7 @@
                 var data = {
                     "customer": this.customer,
                     "startDate": this.sdate,
-                    "days": this.days,
+                    "days": Number(this.days),
                     "location": this.location,
                     "comments": this.comments
                 };

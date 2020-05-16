@@ -9,6 +9,7 @@ import AddModeltoJob from './components/AddModeltoJob.vue';
 import DeleteModel_FromJob from './components/DeleteModel_FromJob.vue';
 //import DeleteModelfromJob from './components/DeleteModelfromJob.vue';
 import SeJob from './components/SeJob.vue';
+import AddExpenseToJob from './components/AddExpenseToJob.vue';
 
 Vue.use(Router);
 
@@ -18,11 +19,6 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "home",
-            component: Home
-        },
-        {
-            path: "/login",
             name: "Login",
             component: Login
         },
@@ -63,6 +59,11 @@ export default new Router({
             path: "/sejob",
             name: "SeJob",
             component: SeJob
+        },
+        {
+            path: "/addexpensetojob",
+            name: "AddExpenseToJob",
+            component: AddExpenseToJob
         }
     ]
 });
