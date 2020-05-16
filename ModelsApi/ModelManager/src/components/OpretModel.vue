@@ -56,8 +56,9 @@
                     </md-field>
 
                     <md-field>
-                        <label>Birth date</label>
-                        <md-input v-model="birthDate"></md-input>
+                            <md-datepicker v-model="birthDate" background="007AFF">
+                                <label>Birth date</label>
+                            </md-datepicker>
                     </md-field>
 
                     <md-field>

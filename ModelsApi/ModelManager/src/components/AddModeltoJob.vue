@@ -12,7 +12,7 @@
 
                     <label>Model</label>
                     <md-field>
-                        <select v-model="selectedModel">
+                        <select v-model="selectedModel" style="background-color: black; color:white">
                             <option disabled value="">Please select option</option>
                             <option v-for="model in models" :key="model.efModelId" v-bind:value="model.efModelId">{{model.firstName}}</option>
                         </select>
@@ -20,7 +20,7 @@
 
                     <label>Job</label>
                     <md-field>
-                        <select v-model="selectedJob">
+                        <select v-model="selectedJob" style="background-color:black; color:white">
                             <option disabled value="">Please select option</option>
                             <option v-for="job in jobs" :key="job.efJobId" v-bind:value="job.efJobId">{{ job.customer }}</option>
                         </select>
