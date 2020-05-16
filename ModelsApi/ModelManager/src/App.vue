@@ -21,11 +21,8 @@
             <md-app-toolbar class="md-large md-dense md-secondary">
                 <div class="md-toolbar-row">
                     <div class="md-toolbar-section-start">
-
                         <span class="md-title">Model Manager</span>
                     </div>
-
-
                 </div>
 
                 <div>
@@ -38,11 +35,9 @@
                         <md-tab id="tab-addmodeltojob" md-label="Add Model To Job" to="/addmodeltojob" exact></md-tab>
                         <md-tab id="tab-deletemodelfromjob" md-label="Delete Model From Job" to="/deletemodelfromjob" exact></md-tab>
                         <md-tab id="tab-sejob" md-label="Se Job" to="/sejob" exact></md-tab>
-
                     </md-tabs>
                 </div>
             </md-app-toolbar>
-
             <md-app-content>
                 <router-view></router-view>
             </md-app-content>
@@ -60,6 +55,5 @@
     
 </script>
 
-<style scoped>
-    
+<style>
 </style>
