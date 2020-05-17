@@ -32,6 +32,7 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
+<<<<<<< HEAD
     <Content Include="src\assets\addJob.png" />
     <Content Include="src\assets\addManager.png" />
     <Content Include="src\assets\AddModel.png" />
@@ -41,6 +42,9 @@
     <Content Include="src\assets\login.png" />
     <Content Include="src\assets\money.png" />
     <Content Include="src\assets\seejob.png" />
+=======
+    <Content Include="src\components\AddExpenseToJob.vue" />
+>>>>>>> 7c2946756a8c96884f19a1ce76d6bd9daebdebf1
     <Content Include="src\components\AddModeltoJob.vue">
       <SubType>Code</SubType>
     </Content>
