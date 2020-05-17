@@ -29,8 +29,9 @@
 </template>
 
 <script>
-import router from "../router";
-
+    import router from "../router";
+    //import Vue from "vue";
+    //Vue.forceUpdate()
     
     export default {
         name: 'Login',
@@ -54,7 +55,8 @@ import router from "../router";
                     headers: new Headers({ 'Content-Type': 'application/json' })
                 }).then(res => res.json()).then((token) => {
                     localStorage.setItem("token", token.jwt);
-                    router.push("/opretmodel")
+                    router.push("/sejob").
+                    then(this.$router.go())
                 }).catch(error => alert("Error!!! "+ error))
             }
         }
