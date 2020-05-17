@@ -32,6 +32,15 @@
     <Content Include="public\favicon.ico" />
     <Content Include="public\index.html" />
     <Content Include="src\App.vue" />
+    <Content Include="src\assets\addJob.png" />
+    <Content Include="src\assets\addManager.png" />
+    <Content Include="src\assets\AddModel.png" />
+    <Content Include="src\assets\addtojob.png" />
+    <Content Include="src\assets\deletefromjob.png" />
+    <Content Include="src\assets\key.png" />
+    <Content Include="src\assets\login.png" />
+    <Content Include="src\assets\money.png" />
+    <Content Include="src\assets\seejob.png" />
     <Content Include="src\components\AddModeltoJob.vue">
       <SubType>Code</SubType>
     </Content>
@@ -57,7 +66,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="src\assets\Under_Construction.jpg" />
-    <Content Include="src\images\baseline_add_box_white_18dp.png" />
+    <Content Include="src\assets\add.png" />
     <Content Include="src\assets\delete.jpg" />
     <Content Include="src\router.js">
       <SubType>Code</SubType>
@@ -69,7 +78,6 @@
     <Folder Include="src\" />
     <Folder Include="src\assets\" />
     <Folder Include="src\components\" />
-    <Folder Include="src\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="babel.config.js" />
